@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+
+/* globals.css */
+  
+  .outline-wrapper {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-playfair), serif;
+    font-weight: 900;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .outline-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+  }
+  
+  .outline-stroke {
+    color: transparent;
+    -webkit-text-stroke: 0.6px #a894d0;
+  }
+
+  .font-playfair {
+    font-family: var(--font-playfair);
+  }
+  
+  
+  
