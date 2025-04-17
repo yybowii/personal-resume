@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import HeartImg from "/heart.png"; // 這裡修改為正確的路徑
+const avatar = "/heart.png";
 import { useState } from "react";
 import { motion } from "framer-motion"; // 加這行！
 
@@ -20,8 +20,10 @@ export default function Home() {
         whileTap={{ scale: 1.3 }}
         transition={{ type: "spring", stiffness: 300, damping: 15 }}
       >
-        <Image src={HeartImg} className="w-[60px]" alt="heart" />
-        <div className="text-xl mt-2">{heart}</div>
+        <img
+              src="/heart.png"
+              alt="heart" className="w-[60px]" />
+            <div className="text-xl mt-2">{heart}</div>
       </motion.div>
     </div>
   );

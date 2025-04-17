@@ -59,8 +59,8 @@ export default function About() {
             </div>
             <p className="mt-1 text-sm leading-relaxed">
               我是一個喜歡各種新事物，熱衷參與不同活動的包依依！<br />
-              目前的主學習是影像、日文、設計跟 code，但目前都還是起步，希望可以大家多學習～<br />
-              很會常常累到爆炸，是個行程表會排很滿的人。
+              目前在學習影像製作、日文、設計跟 code，但目前都還是菜鳥，希望可以向大家學習～<br />
+              很常會累到爆炸，是個行程表會排很滿的Ｊ人。
             </p>
           </motion.section>
 
@@ -78,12 +78,12 @@ export default function About() {
               <h2 className="text-xl font-semibold">EXPERIENCE</h2>
             </div>
             <ul className="list-disc list-inside mt-1 text-sm space-y-1">
-              <li>傳播院不分系學會第十屆會長</li>
-              <li>政大平台營-首營宣傳組 一級助理</li>
-              <li>政大戲劇營第十九屆 營隊組組員</li>
-              <li>政大鹿鳴藝術季《偶然與想像》副召</li>
-              <li>政大2023包種茶節視覺組組員</li>
-              <li>秋野芒劇團經營執行</li>
+              <li>傳播學院不分系學會第十屆會長</li>
+              <li>政大實習平台-影音實驗室 二級助理</li>
+              <li>政大金旋獎第四十一屆 策劃組組員</li>
+              <li>政大廣電營第二十八屆 《摩登映畫館》副召</li>
+              <li>政大2023包種茶節視設組組員</li>
+              <li>秋野芒劇團燈音執行</li>
             </ul>
           </motion.section>
 
@@ -101,10 +101,13 @@ export default function About() {
               <h2 className="text-xl font-semibold">SKILL</h2>
             </div>
             <ul className="list-disc list-inside mt-1 text-sm space-y-1">
-              <li>Illustrator, Photoshop</li>
-              <li>影像拍攝剪輯與燈光</li>
-              <li>HTML, CSS, JavaScript, C#, Python</li>
-              <li>音效與燈光設計（劇場）</li>
+              <li>Design: Illustrator, Photoshop</li>
+              <li>Video Production:
+              Story Development, Filming, Editing, Lighting</li>
+              <li>Digital & Web Development:
+              HTML, CSS, Python, C#, JavaScript</li>
+              <li>Theater:
+              Sound Design, Lighting Design</li>
             </ul>
           </motion.section>
 
