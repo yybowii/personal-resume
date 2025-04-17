@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import AvatarImg from "@/../public/Avatar.png";
+const avatar = "/Ａvatar.png"; // ✅ 正確方式
 import Link from "next/link";
 import LinkImg1 from "@/image/帝寶.png";
 import { FaInstagram, FaThreads } from "react-icons/fa6";
@@ -40,13 +39,12 @@ export default function RootLayout({ children }) {
           <div className="min-w-[320px] w-full sm:w-[320px] h-full rounded-2xl bg-white bg-cover bg-no-repeat flex justify-start items-center flex-col p-[30px] pt-[80px] overflow-y-auto overflow-x-hidden shadow-xl">
 
           <Link href="/">
-            <Image 
-              src={AvatarImg} 
-              alt="Avatar" 
-              className="w-[80px] h-[80px] rounded-full cursor-pointer hover:scale-105 transition-transform duration-200" 
+            <img
+              src="/Avatar.png"
+              alt="Avatar"
+              className="w-[80px] h-[80px] rounded-full cursor-pointer hover:scale-105 transition-transform duration-200"
             />
           </Link>
-
 
             <h1 className="mt-2 font-playfair text-m font-semibold">包依依 yybowii</h1>
             <p className="max-w-[380px] text-center">    
