@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import HeartImg from "@/../public/heart.png";
+import HeartImg from "/heart.png"; // 這裡修改為正確的路徑
 import { useState } from "react";
 import { motion } from "framer-motion"; // 加這行！
 
