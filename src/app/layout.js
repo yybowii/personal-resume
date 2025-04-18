@@ -2,7 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 const avatar = "/Ａvatar.png"; // ✅ 正確方式
 import Link from "next/link";
-import LinkImg1 from "@/image/帝寶.png";
 import { FaInstagram, FaThreads } from "react-icons/fa6";
 import { CiFacebook } from "react-icons/ci";
 import { CgMail } from "react-icons/cg";
@@ -71,10 +70,10 @@ export default function RootLayout({ children }) {
                 </div>
               </a>
 
-              <a href="mailto:112405091@g.nccu.edu.tw">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=112405091@g.nccu.edu.tw" target="_blank" rel="noopener noreferrer">
                 <div className="bg-white border border-[#abb4ec] w-[40px] h-[40px] rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-200">
-                 <CgMail className="text-[#abb4ec] text-xl" />
-                 </div>
+                  <CgMail className="text-[#abb4ec] text-xl" />
+                </div>
               </a>
 
             </div>
