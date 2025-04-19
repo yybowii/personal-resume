@@ -37,7 +37,7 @@ export default function Video() {
     <div className="w-full h-full overflow-y-auto bg-white flex flex-col justify-start items-center rounded-2xl py-12 px-6">
       <div className="flex flex-col w-full">
         <h1 className="text-2xl font-bold mb-2">影像作品</h1>
-        <h3 className="text-base mb-4">
+        <h3 className="text-base mb-1">
           在大學我加入了影音實驗室，與夥伴們拍了一些作品！很喜歡在片場跟大家一起工作的時間，雖然會很躁鬱，但是是一件很有成就感的事！
         </h3>
         <p className="text-sm text-gray-500 mb-4">點擊圖片可觀看</p>
