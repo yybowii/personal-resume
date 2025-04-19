@@ -5,20 +5,36 @@ import Video2 from "@/image/2.png";
 import Video3 from "@/image/3.png";
 import Video4 from "@/image/4.png";
 import Video5 from "@/image/5.png";
+import { useState } from "react";
 import Image from "next/image";
 
 export default function Video() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState("");
+  const [isInstagram, setIsInstagram] = useState(false);
+
   const videoData = [
-    { src: Video1, title: "第十五屆金勇影展《Sea Saw》燈光兼製片" },
-    { src: Video2, title: "大一期末《A：》導演兼編劇" },
-    { src: Video3, title: "影音實驗室見習MV《Almost forget》製片" },
-    { src: Video5, title: "113學年度廣電系畢業製作《潛像》製片" },
+    { src: Video1, title: "第十五屆金勇影展《Sea Saw》燈光兼製片", videoUrl: "https://drive.google.com/file/d/1Cjk_pvihy2IicktsK6gfMFN_0Fl8OrWI/preview" },
+    { src: Video2, title: "大一期末《A：》導演兼編劇", videoUrl: "https://drive.google.com/file/d/1ETPPASyxR3hCsdIjdMwMu-V9Wr0KJV4M/preview" },
+    { src: Video3, title: "影音實驗室見習MV《Almost forget》製片", videoUrl: "https://drive.google.com/file/d/1E6yNlu3vp5xc0uZupJeAX-4qbIR1X8xj/preview" },
+    { src: Video4, title: "第28屆政大廣電營《摩登映畫館》宣傳片《什麼鬼啊》製片", videoUrl: "https://www.instagram.com/reel/DHqhBFBPavE/embed" },
+    { src: Video5, title: "113學年度廣電系畢業製作《潛像》製片", videoUrl: "" },
   ];
+
+  const openModal = (url) => {
+    setIsInstagram(url.includes("instagram"));
+    setVideoUrl(url);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setVideoUrl("");
+    setIsInstagram(false);
+  };
 
   return (
     <div className="w-full h-full overflow-y-auto bg-white flex flex-col justify-start items-center rounded-2xl py-12 px-6">
-
-      {/* 標題與副標題 */}
       <div className="flex flex-col w-full">
         <h1 className="text-2xl font-bold mb-2">影像作品</h1>
         <h3 className="text-base mb-4">
@@ -26,52 +42,72 @@ export default function Video() {
         </h3>
       </div>
 
-      {/* 前兩排作品 */}
-      <div className="flex flex-col w-full gap-6 mt-3">
-        {[0, 2].map((startIdx) => (
-          <div key={startIdx} className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4">
-            {[videoData[startIdx], videoData[startIdx + 1]].map((item, idx) => (
-              <div
-                key={idx}
-                className="relative group rounded-2xl overflow-hidden"
-              >
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  layout="responsive"
-                  width={800}
-                  height={600}
-                  className="rounded-2xl object-contain"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center px-4">
-                  <span className="text-white text-base font-semibold">{item.title}</span>
-                </div>
-              </div>
-            ))}
+      {/* 第一排：Video1 + Video2 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4 mt-3">
+        {[videoData[0], videoData[1]].map((item, idx) => (
+          <div
+            key={idx}
+            className="relative group rounded-2xl overflow-hidden"
+            onClick={() => item.videoUrl && openModal(item.videoUrl)}
+          >
+            <Image
+              src={item.src}
+              alt={item.title}
+              layout="responsive"
+              width={800}
+              height={600}
+              className="rounded-2xl object-contain"
+            />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center px-4">
+              <span className="text-white text-base font-semibold">{item.title}</span>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* 第三排：左圖右文 */}
+      {/* 第二排：Video3 (左) + Video5 (右) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4 mt-6">
-        {/* 圖片 */}
-        <div className="relative group rounded-2xl overflow-hidden">
+        {[videoData[2], videoData[4]].map((item, idx) => (
+          <div
+            key={idx}
+            className="relative group rounded-2xl overflow-hidden"
+            onClick={() => item.videoUrl && openModal(item.videoUrl)}
+          >
+            <Image
+              src={item.src}
+              alt={item.title}
+              layout="responsive"
+              width={800}
+              height={600}
+              className="rounded-2xl object-contain"
+            />
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center px-4">
+              <span className="text-white text-base font-semibold">{item.title}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* 第三排：Video4 (IG影片) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4 mt-6">
+        <div
+          className="relative group rounded-2xl overflow-hidden"
+          onClick={() => openModal(videoData[3].videoUrl)}
+        >
           <Image
-            src={Video4}
-            alt="第28屆政大廣電營《摩登映畫館》宣傳片《什麼鬼啊》製片"
+            src={videoData[3].src}
+            alt={videoData[3].title}
             layout="responsive"
             width={800}
-            height={600}
-            className="rounded-2xl object-contain"
+            height={1000}
+            className="rounded-2xl object-cover"
           />
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center px-4">
-            <span className="text-white text-base font-semibold">
-              第28屆政大廣電營《摩登映畫館》宣傳片《什麼鬼啊》製片
-            </span>
+            <span className="text-white text-base font-semibold">{videoData[3].title}</span>
           </div>
         </div>
 
-        {/* 說明文字 */}
+        {/* 經歷區塊 */}
         <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col justify-center">
           <h2 className="text-xl font-semibold mb-2">拍片經驗</h2>
           <p className="text-base leading-relaxed text-gray-700 whitespace-pre-line">
@@ -93,6 +129,28 @@ export default function Video() {
           </p>
         </div>
       </div>
+
+      {/* Modal */}
+      {isOpen && videoUrl && (
+        <div
+          className="fixed inset-0 flex justify-center items-center bg-black/70 z-50"
+          onClick={closeModal}
+        >
+          <div
+            className={`bg-white rounded-xl overflow-hidden ${isInstagram ? 'w-[360px] h-[640px]' : 'w-full sm:max-w-4xl aspect-video'}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src={videoUrl}
+              title="Video Preview"
+              className="w-full h-full"
+              allow="autoplay"
+              allowFullScreen
+              frameBorder="0"
+            ></iframe>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
