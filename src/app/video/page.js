@@ -8,9 +8,16 @@ import Video5 from "@/image/5.png";
 import Image from "next/image";
 
 export default function Video() {
+  const videoData = [
+    { src: Video1, title: "第十五屆金勇影展《Sea Saw》燈光兼製片" },
+    { src: Video2, title: "大一期末《A：》導演兼編劇" },
+    { src: Video3, title: "影音實驗室見習MV《Almost forget》製片" },
+    { src: Video5, title: "113學年度廣電系畢業製作《潛像》製片" },
+  ];
+
   return (
     <div className="w-full h-full overflow-y-auto bg-white flex flex-col justify-start items-center rounded-2xl py-12 px-6">
-      
+
       {/* 標題與副標題 */}
       <div className="flex flex-col w-full">
         <h1 className="text-2xl font-bold mb-2">影像作品</h1>
@@ -19,89 +26,72 @@ export default function Video() {
         </h3>
       </div>
 
-      <div className="flex flex-col w-full gap-4 mt-3">
-
-        {/* 第一排：1、2 */}
-        <div className="grid grid-cols-2 w-full gap-4 h-[33vh]">
-          {[Video1, Video2].map((img, idx) => (
-            <div
-              key={idx}
-              className="relative group rounded-2xl overflow-hidden"
-            >
-              <Image
-                src={img}
-                alt={`影像作品 ${idx + 1}`}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-2xl"
-              />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white text-xl font-semibold">{`作品 ${idx + 1}`}</span>
+      {/* 前兩排作品 */}
+      <div className="flex flex-col w-full gap-6 mt-3">
+        {[0, 2].map((startIdx) => (
+          <div key={startIdx} className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4">
+            {[videoData[startIdx], videoData[startIdx + 1]].map((item, idx) => (
+              <div
+                key={idx}
+                className="relative group rounded-2xl overflow-hidden"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  layout="responsive"
+                  width={800}
+                  height={600}
+                  className="rounded-2xl object-contain"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center px-4">
+                  <span className="text-white text-base font-semibold">{item.title}</span>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* 第二排：3、5 */}
-        <div className="grid grid-cols-2 w-full gap-4 h-[33vh]">
-          {[Video3, Video5].map((img, idx) => (
-            <div
-              key={idx}
-              className="relative group rounded-2xl overflow-hidden"
-            >
-              <Image
-                src={img}
-                alt={`影像作品 ${idx + 3}`}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-2xl"
-              />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white text-xl font-semibold">{`作品 ${idx + 3}`}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* 第三排：左圖右文 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4 h-[80vh]">
-          {/* 左側圖 */}
-          <div className="relative group rounded-2xl overflow-hidden">
-            <Image
-              src={Video4}
-              alt="影像作品 5"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-2xl"
-            />
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <span className="text-white text-xl font-semibold">作品 5</span>
-            </div>
+            ))}
           </div>
+        ))}
+      </div>
 
-          {/* 右側文字區：白底＋陰影 */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col justify-center">
-            <h2 className="text-xl font-semibold mb-2">拍片經驗</h2>
-            <p className="text-base leading-relaxed text-gray-700">
-              ○ 大學一年級期末作業《A:》擔任導演、編劇<br />
-              ○ 政大影音實驗室見習MV《Almost Forgot》擔任製片<br />
-              ○ 112年學長姐畢業製作《Joker show》擔任美術助理<br />
-              ○ 112年學長姐大三編導與實務《白色糖果》擔任製片助理<br />
-              ○ 2024政大廣電營營歌MV擔任副導兼場記<br />
-              ○ 2024政大廣電營餐間片-廣告片擔任副導<br />
-              ○ 112年學長姐畢業製作《無私之地》擔任燈光助理<br />
-              ○ 影音實驗室-第十五屆金勇影展《Sea saw》擔任燈光兼製片<br />
-              ○ 113年學長姐畢業製作《吉光路88號》擔任生活製片<br />
-              ○ 113年學長姐畢業製作《方死方生》擔任美術助理<br />
-              ○ 113學年度學長姐畢業製作《潛像》擔任製片<br />
-              ○ 2025政大廣電營宣傳片《什麼鬼啊》擔任製片<br />
-              ○ 113學年度學長姐大三編導與實務《Offshore》擔任副導<br />
-              ○ 113學年度學長姐大三編導與實務《純聊天》擔任製片兼美術<br />
-              ○ 2025政大畢業歌MV《遠山·雨聲未息》擔任製片助理<br />
-            </p>
+      {/* 第三排：左圖右文 */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4 mt-6">
+        {/* 圖片 */}
+        <div className="relative group rounded-2xl overflow-hidden">
+          <Image
+            src={Video4}
+            alt="第28屆政大廣電營《摩登映畫館》宣傳片《什麼鬼啊》製片"
+            layout="responsive"
+            width={800}
+            height={600}
+            className="rounded-2xl object-contain"
+          />
+          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center px-4">
+            <span className="text-white text-base font-semibold">
+              第28屆政大廣電營《摩登映畫館》宣傳片《什麼鬼啊》製片
+            </span>
           </div>
         </div>
 
+        {/* 說明文字 */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col justify-center">
+          <h2 className="text-xl font-semibold mb-2">拍片經驗</h2>
+          <p className="text-base leading-relaxed text-gray-700 whitespace-pre-line">
+            ○ 大學一年級期末作業《A:》擔任導演、編劇<br />
+            ○ 政大影音實驗室見習MV《Almost Forgot》擔任製片<br />
+            ○ 112年學長姐畢業製作《Joker show》擔任美術助理<br />
+            ○ 112年學長姐大三編導與實務《白色糖果》擔任製片助理<br />
+            ○ 2024政大廣電營營歌MV擔任副導兼場記<br />
+            ○ 2024政大廣電營餐間片-廣告片擔任副導<br />
+            ○ 112年學長姐畢業製作《無私之地》擔任燈光助理<br />
+            ○ 影音實驗室-第十五屆金勇影展《Sea saw》擔任燈光兼製片<br />
+            ○ 113年學長姐畢業製作《吉光路88號》擔任生活製片<br />
+            ○ 113年學長姐畢業製作《方死方生》擔任美術助理<br />
+            ○ 113學年度學長姐畢業製作《潛像》擔任製片<br />
+            ○ 2025政大廣電營宣傳片《什麼鬼啊》擔任製片<br />
+            ○ 113學年度學長姐大三編導與實務《Offshore》擔任副導<br />
+            ○ 113學年度學長姐大三編導與實務《純聊天》擔任製片兼美術<br />
+            ○ 2025政大畢業歌MV《遠山·雨聲未息》擔任製片助理<br />
+          </p>
+        </div>
       </div>
     </div>
   );
