@@ -87,10 +87,12 @@ export default function Video() {
     <div className="w-full h-full overflow-y-auto bg-white flex flex-col justify-start items-center rounded-2xl py-12 px-6">
       <div className="flex flex-col w-full">
         <h1 className="text-2xl font-bold mb-2">節目作品</h1>
-        <h3 className="text-base mb-4">
+        <h3 className="text-base mb-1">
           我很喜歡看節目，這些是我參與過的一些節目製作，也棚內也有外景。
           做節目就是一件複雜但很讓人開心的事情！
         </h3>
+        <p className="text-sm text-gray-500 mb-4">點擊圖片可觀看</p>
+
       </div>
 
       <div className="flex flex-col w-full gap-6 mt-3">

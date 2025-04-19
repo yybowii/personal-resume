@@ -40,6 +40,7 @@ export default function Video() {
         <h3 className="text-base mb-4">
           在大學我加入了影音實驗室，與夥伴們拍了一些作品！很喜歡在片場跟大家一起工作的時間，雖然會很躁鬱，但是是一件很有成就感的事！
         </h3>
+        <p className="text-sm text-gray-500 mb-4">點擊圖片可觀看</p>
       </div>
 
       {/* 第一排：Video1 + Video2 */}
