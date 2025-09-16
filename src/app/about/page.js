@@ -38,9 +38,10 @@ export default function About() {
               <h2 className="text-xl font-semibold">STUDY AT</h2>
             </div>
             <p className="mt-1 text-sm leading-relaxed">
+              國立政治大學 廣告系就讀中<br />
               國立政治大學 傳播學院大一大二不分系<br />
               雙主修 數位內容學程<br />
-              輔系 日文系
+              輔系 日文系<br />
             </p>
           </motion.section>
 
